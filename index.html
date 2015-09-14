@@ -68,6 +68,9 @@
 	</main>
 
 <script>
+
+	var videos = [document.getElementById("video1"), document.getElementById("video2")];
+
 	function refresh() {
 		var max = getMax();
 		var one = Math.floor((Math.random() * max));
@@ -76,13 +79,13 @@
 		while(one==two)
 			two = Math.floor((Math.random() * max));
 	
+		if (!videos[0].paused)
+			videos[0].parentElement.classList.toggle('paused');
 	
-		fill(one,two);
+		fill(one,two);	
 	}
 	
 	refresh();
-
-	var videos = [document.getElementById("video1"), document.getElementById("video2")];
 	
 	function playPause(num) {
 		if (videos[num].paused) {
